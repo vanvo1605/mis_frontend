@@ -34,7 +34,7 @@ function Login(props) {
         axios.request(config)
             .then((response) => {
                 console.log(JSON.stringify(response.data));
-                setLogin_status("Login successful")
+                setLogin_status("Login successful!")
             })
             .catch((error) => {
                 console.log(error);
@@ -47,7 +47,7 @@ function Login(props) {
         <div>
             <h1>Login page</h1>
             <p>Username <input id={"username"} type="text" onChange={usernameHandler}/></p>
-            <p>Password <input id={"password"} type="text" onChange={passwordHandler}/></p>
+            <p>Password <input id={"password"} type="password" onChange={passwordHandler}/></p>
             <p>
                 <button id={"loginbtn"} onClick={login}>Login</button>
             </p>
