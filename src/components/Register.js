@@ -48,7 +48,7 @@ function Register(props) {
         <div>
             <h1>Register page</h1>
             <p>Username <input id={"username"} type="text" onChange={usernameHandler}/></p>
-            <p>Password <input id={"password"} type="text" onChange={passwordHandler}/></p>
+            <p>Password <input id={"password"} type="password" onChange={passwordHandler}/></p>
             <p>
                 <button id={"loginbtn"} onClick={register}>Submit</button>
             </p>
