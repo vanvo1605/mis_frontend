@@ -15,7 +15,7 @@ function Login(props) {
         setPassword(e.target.value)
     }
 
-    function login () {
+    function lgn () {
         let data = JSON.stringify({
             "username": username,
             "password": password
@@ -24,7 +24,7 @@ function Login(props) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: BaseURL + 'auth/',
+            url: 'https://mis-assignment1-backend.vercel.app/api/login/',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -33,7 +33,10 @@ function Login(props) {
 
         axios.request(config)
             .then((response) => {
+                console.log('-----------------------------');
+                console.log('Viewing reponse data');
                 console.log(JSON.stringify(response.data));
+                localStorage.setItem('token', response.data.token)
                 setLogin_status("Login successful!")
             })
             .catch((error) => {
@@ -49,7 +52,7 @@ function Login(props) {
             <p>Username <input id={"username"} type="text" onChange={usernameHandler}/></p>
             <p>Password <input id={"password"} type="password" onChange={passwordHandler}/></p>
             <p>
-                <button id={"loginbtn"} onClick={login}>Login</button>
+                <button id={"loginbtn"} onClick={lgn}>Login</button>
             </p>
             <p id={'login_status'}>{login_status}</p>
         </div>
