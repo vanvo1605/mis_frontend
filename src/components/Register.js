@@ -15,13 +15,6 @@ function Register(props) {
         setPassword(e.target.value)
     }
 
-   function checkInputFields() {
-        if (username === "" || password === "") {
-            return false
-        } else {
-            return true
-        }
-    }
 
     function register() {
 
@@ -30,8 +23,6 @@ function Register(props) {
             "password": password
         });
 
-        console.log("-------------check data");
-        console.log(data);
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
@@ -44,7 +35,6 @@ function Register(props) {
 
         axios.request(config)
             .then((response) => {
-                console.log("-------------check response data");
                 console.log(JSON.stringify(response.data));
                 setRegister_status("Register successful!")
             })
