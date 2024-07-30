@@ -15,6 +15,7 @@ function Register(props) {
         setPassword(e.target.value)
     }
 
+
     function register() {
 
         let data = JSON.stringify({
