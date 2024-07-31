@@ -16,7 +16,8 @@ function Register(props) {
     }
 
 
-    function rgt() {
+    function register() {
+
 
         // Data to pass to the request to call API
         let data = JSON.stringify({
@@ -53,7 +54,7 @@ function Register(props) {
             <p>Username <input id={"username"} type="text" onChange={usernameHandler}/></p>
             <p>Password <input id={"password"} type="password" onChange={passwordHandler}/></p>
             <p>
-                <button id={"loginbtn"} onClick={rgt}>Submit</button>
+                <button id={"loginbtn"} onClick={register}>Submit</button>
             </p>
             <p id={'register_status'}>{register_status}</p>
         </div>
