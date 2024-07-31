@@ -39,15 +39,13 @@ function ChatRoom(props) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://mis-assignment1-backend.vercel.app/api/chatroom/',
+            url: BaseURL + 'api/chatroom/',
             headers: {
                 'Authorization': `Token ${localStorage.getItem('token')}`,
                 'Content-Type': 'application/json'
             },
             data: data
         };
-        console.log('request------------------');
-        console.log(config);
         axios.request(config)
             .then((response) => {
                 console.log(JSON.stringify(response.data));
@@ -94,7 +92,7 @@ function ChatRoom(props) {
                 </div>
                  ))}
             </div>
-            <div className="alert alert-success">{createChatroomStatus}</div>
+            <div id={'chatroom-status'} className="alert alert-success">{createChatroomStatus}</div>
             <div>
                 <h2>Selected Items:</h2>
                 <ul>

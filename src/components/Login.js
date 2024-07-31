@@ -15,7 +15,7 @@ function Login(props) {
         setPassword(e.target.value)
     }
 
-    function lgn () {
+    function login () {
         let data = JSON.stringify({
             "username": username,
             "password": password
@@ -24,7 +24,7 @@ function Login(props) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://mis-assignment1-backend.vercel.app/api/login/',
+            url: BaseURL + 'api/login/',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -52,7 +52,7 @@ function Login(props) {
             <p>Username <input id={"username"} type="text" onChange={usernameHandler}/></p>
             <p>Password <input id={"password"} type="password" onChange={passwordHandler}/></p>
             <p>
-                <button id={"loginbtn"} onClick={lgn}>Login</button>
+                <button id={"loginbtn"} onClick={login}>Login</button>
             </p>
             <p id={'login_status'}>{login_status}</p>
         </div>

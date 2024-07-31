@@ -3,45 +3,32 @@ import {BaseURL} from "../consistents";
 import axios from "axios";
 
 function Register(props) {
-    const [a, setA] = useState("")
-    const [b, setB] = useState("")
+    const [username, setUserName] = useState("")
+    const [password, setPassword] = useState("")
     const [register_status, setRegister_status] = useState("")
 
     function usernameHandler(e) {
-        setA(e.target.value)
+        setUserName(e.target.value)
     }
 
     function passwordHandler(e) {
-        setB(e.target.value)
+        setPassword(e.target.value)
     }
 
-    function checkIfUsernameValid(username) {
-        if (username.length < 5) {
-            return false
-        }
-        return true
-    }
-
-    function checkIfPasswordValid(password) {
-        if (password.length < 5) {
-            return false
-        }
-        return true
-    }
 
     function rgt() {
 
         // Data to pass to the request to call API
         let data = JSON.stringify({
-            "username": a,
-            "password": b
+            "username": username,
+            "password": password
         });
 
         // Cofiguration for the request
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url:  'https://mis-assignment1-backend.vercel.app/api/user/',
+            url:  BaseURL + 'api/user/',
             headers: {
                 'Content-Type': 'application/json'
             },
