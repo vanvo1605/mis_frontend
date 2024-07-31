@@ -3,12 +3,12 @@ import {BaseURL} from "../consistents";
 import axios from "axios";
 
 function Register(props) {
-    const [username, setUsername] = useState("")
+    const [username, setUserName] = useState("")
     const [password, setPassword] = useState("")
     const [register_status, setRegister_status] = useState("")
 
     function usernameHandler(e) {
-        setUsername(e.target.value)
+        setUserName(e.target.value)
     }
 
     function passwordHandler(e) {
@@ -18,21 +18,25 @@ function Register(props) {
 
     function register() {
 
+
+        // Data to pass to the request to call API
         let data = JSON.stringify({
             "username": username,
             "password": password
         });
 
+        // Cofiguration for the request
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: BaseURL + 'api/user/',
+            url:  BaseURL + 'api/user/',
             headers: {
                 'Content-Type': 'application/json'
             },
             data: data
         };
 
+        // Calling API to register an user
         axios.request(config)
             .then((response) => {
                 console.log(JSON.stringify(response.data));
@@ -42,7 +46,6 @@ function Register(props) {
                 console.log(error);
                 setRegister_status(error.response.data)
             });
-
     }
 
     return (

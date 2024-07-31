@@ -24,7 +24,7 @@ function Login(props) {
         let config = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: BaseURL + 'auth/',
+            url: BaseURL + 'api/login/',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -33,7 +33,10 @@ function Login(props) {
 
         axios.request(config)
             .then((response) => {
+                console.log('-----------------------------');
+                console.log('Viewing reponse data');
                 console.log(JSON.stringify(response.data));
+                localStorage.setItem('token', response.data.token)
                 setLogin_status("Login successful!")
             })
             .catch((error) => {
